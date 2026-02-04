@@ -156,12 +156,12 @@ export default function WildlifeSafariPage() {
                             <div className="text-[13px] text-[#686868]">per person</div>
                           </div>
                           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                            <button
-                              onClick={() => handleBookingOpen({name: pkg.title, amount: pkg.price})}
+                            <Link
+                              href={`/safaris/packages/${pkg.id}`}
                               className="bg-[#1f751f] text-white px-6 py-3 rounded-[50px] hover:bg-[#0f440f] transition-colors inline-flex items-center justify-center gap-2"
                             >
-                              Book Now <ChevronRight size={18} />
-                            </button>
+                              View Details <ChevronRight size={18} />
+                            </Link>
                             <button
                               onClick={() => handleBookingOpen({name: pkg.title, amount: pkg.price})}
                               className="border border-[#1f751f] text-[#1f751f] px-6 py-3 rounded-[50px] hover:bg-[#1f751f] hover:text-white transition-colors inline-flex items-center justify-center gap-2"

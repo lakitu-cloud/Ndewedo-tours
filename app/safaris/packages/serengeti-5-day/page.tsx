@@ -1,4 +1,6 @@
-import type { Metadata } from 'next'
+"use client";
+
+import { useState } from 'react'
 import Link from 'next/link'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import {
@@ -6,22 +8,17 @@ import {
   ChevronRight, Mail, Phone, Download, Share2,
   Sun, Moon, Utensils, Bed, Camera
 } from 'lucide-react'
-import SafariPackageClient from '@/components/SafariPackageClient'
 import PackageSubNav from '@/components/PackageSubNav'
 import ItineraryAccordion from '@/components/ItineraryAccordion'
-
-export const metadata: Metadata = {
-  title: '5-Day Serengeti & Ngorongoro Safari - Ndewedo Tours',
-  description: 'Experience the ultimate 5-day safari adventure through Serengeti and Ngorongoro Crater. Witness the Big Five and the Great Migration with expert guides.',
-}
+import BookingModal from '@/components/BookingModal';
 
 const packageGallery = [
   'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5MzI2OHww&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXJlbmdldGklMjBsaW9uc3xlbnwxfHx8fDE3NjI1OTk1MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5OTU5MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
   'https://images.unsplash.com/photo-1516494982030-fda424f96b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZ29yb25nb3JvJTIwY3JhdGVyfGVufDF8fHx8MTc2MjU5OTUyMnww&ixlib=rb-4.1.0&q=80&w=1080',
   'https://images.unsplash.com/photo-1560440293-855922f9cc7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNlcmVuZ2V0aSUyMHN1bnNldHxlbnwxfHx8fDE3NjI1OTk3MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1632315152441-465a943cc211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYWZhcmklMjB0ZW50JTIwY2FtcHxlbnwxfHx8fDE3NjI1OTk3MDV8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1662377067390-278529608716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYWZhcmklMjBncm91cCUyMHBlb3BsZXxlbnwxfHx8fDE3NjI1OTk3MDV8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  'https://images.unsplash.com/photo-1632315152441-465a943cc211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHRlbnQlMjBjYW1wfGVufDF8fHx8MTc2MjU5OTcwNXww&ixlib=rb-4.1.0&q=80&w=1080',
+  'https://images.unsplash.com/photo-1662377067390-278529608716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMGdyb3VwJTIwcGVvcGxlfGVufDF8fHx8MTc2MjU5OTcwOHww&ixlib=rb-4.1.0&q=80&w=1080',
 ];
 
 const itinerary = [
@@ -173,6 +170,10 @@ const itinerary = [
 ];
 
 export default function SerengeriPackagePage() {
+  const [isBookingOpen, setBookingOpen] = useState(false);
+  const packageName = "5-Day Serengeti & Ngorongoro Safari";
+  const packagePrice = "$2,450";
+
   return (
     <div className="w-full">
       {/* Hero Section with Image */}
@@ -203,7 +204,7 @@ export default function SerengeriPackagePage() {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <div className="text-white">
                 <h1 className="text-[32px] sm:text-[42px] md:text-[52px] mb-3">
-                  5-Day Serengeti & Ngorongoro Safari
+                  {packageName}
                 </h1>
                 <div className="flex flex-wrap items-center gap-4 text-[15px] sm:text-[16px]">
                   <div className="flex items-center gap-2">
@@ -222,7 +223,7 @@ export default function SerengeriPackagePage() {
               </div>
               <div className="text-white">
                 <div className="text-[14px] mb-1">From</div>
-                <div className="text-[42px] sm:text-[52px]">$2,450</div>
+                <div className="text-[42px] sm:text-[52px]">{packagePrice}</div>
                 <div className="text-[14px]">per person</div>
               </div>
             </div>
@@ -402,18 +403,18 @@ export default function SerengeriPackagePage() {
                 <div className="bg-white rounded-[20px] p-6 shadow-lg">
                   <div className="text-center border-b border-gray-200 pb-6 mb-6">
                     <div className="text-[14px] text-[#686868] mb-2">Price from</div>
-                    <div className="text-[42px] text-[#1f751f]">$2,450</div>
+                    <div className="text-[42px] text-[#1f751f]">{packagePrice}</div>
                     <div className="text-[14px] text-[#686868]">per person</div>
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <Link
-                      href="/contact?package=serengeti-5-day"
+                    <button
+                      onClick={() => setBookingOpen(true)}
                       className="w-full bg-[#1f751f] text-white px-6 py-4 rounded-[50px] hover:bg-[#0f440f] transition-colors flex items-center justify-center gap-2"
                     >
                       <Mail size={20} />
                       Book Now
-                    </Link>
+                    </button>
                     <a
                       href="tel:+255753243280"
                       className="w-full border-2 border-[#1f751f] text-[#1f751f] px-6 py-4 rounded-[50px] hover:bg-[#1f751f] hover:text-white transition-colors flex items-center justify-center gap-2"
@@ -576,6 +577,11 @@ export default function SerengeriPackagePage() {
           </div>
         </div>
       </section>
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setBookingOpen(false)} 
+        safariPackage={{name: packageName, amount: packagePrice}} 
+      />
     </div>
   )
 }
