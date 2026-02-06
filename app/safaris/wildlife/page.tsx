@@ -4,8 +4,8 @@ import { useState } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback';
-import { 
-  Clock, Users, MapPin, Calendar, Check, Star, 
+import {
+  Clock, Users, MapPin, Calendar, Check, Star,
   ChevronRight, Mail, Phone, Camera, Tent, Utensils
 } from 'lucide-react';
 import { HeroSection } from '@/components/HeroSection';
@@ -13,63 +13,84 @@ import BookingModal from '@/components/BookingModal';
 
 const safariPackages = [
   {
-    id: 'serengeti-5-day',
-    title: '5-Day Serengeti & Ngorongoro Safari',
-    duration: '5 Days / 4 Nights',
-    price: '$2,450',
+    id: 'northern-circuit-9-day',
+    title: '9-DAY EXCLUSIVE NORTHERN TANZANIA SAFARI',
+    duration: '9 Days / 8 Nights',
+    price: '$9,840',
     rating: 4.9,
     reviews: 127,
-    image: 'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5MzI2OHww&ixlib=rb-4.1.0&q=80&w=1080',
-    description: 'Experience the best of Tanzania wildlife in this 5-day adventure through Serengeti and Ngorongoro Crater.',
+    href: "/safaris/packages/northern-circuit-9-day",  // Updated href to match title better
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/fb/a5/c8/luxury-ensuite-room-view.jpg?w=900&h=500&s=1',  // Luxury Serengeti tent interior with savannah view (from real camp listings)
+    description: 'From the Garden of Eden (Ngorongoro Crater) to the endless plains of the Serengeti and Tarangire’s elephant herds — an exclusive journey with luxury tented camps and expert guiding.',
     highlights: [
-      'Witness the Great Migration (seasonal)',
-      'Big Five game viewing',
-      'Ngorongoro Crater descent',
-      'Olduvai Gorge visit',
-      'Professional safari guide'
+      'Track the Great Migration in mobile luxury camps',
+      'Panoramic Ngorongoro Crater rim views',
+      'Year-round Big Five & predator sightings in Serengeti',
+      'Massive elephant herds & baobabs in Tarangire',
+      'Choice of luxury or mid-range accommodations'
     ]
   },
   {
-    id: 'northern-circuit-7-day',
-    title: '7-Day Northern Circuit Safari',
-    duration: '7 Days / 6 Nights',
-    price: '$3,280',
+    id: 'tanzania-zanzibar-10-day',
+    title: '10-DAY TANZANIA SAFARI & ZANZIBAR BEACH EXPERIENCE',
+    duration: '10 Days / 9 Nights',
+    price: '$6,356',
     rating: 5.0,
-    reviews: 89,
-    image: 'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXJlbmdldGklMjBsaW9uc3xlbnwxfHx8fDE3NjI1OTk1MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    description: 'Comprehensive tour of Tanzania\'s northern parks including Serengeti, Ngorongoro, Tarangire, and Lake Manyara.',
+    reviews: 89, // You can update this based on real data later
+    href: "/safaris/packages/zanzibar-10-day",
+    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080', // Stunning Zanzibar beach with palm trees and turquoise ocean – perfect hero for safari + beach combo
+    description: 'Thrilling wildlife safari through Lake Manyara, Serengeti, and Ngorongoro Crater, followed by pure relaxation on the pristine beaches of Zanzibar.',
     highlights: [
-      'Visit 4 national parks',
-      'Tree-climbing lions at Manyara',
-      'Elephant herds at Tarangire',
-      'Serengeti game drives',
-      'Cultural Maasai village visit'
+      'Tree-climbing lions and diverse wildlife in Lake Manyara',
+      'Full-day game drives in the iconic Serengeti plains',
+      'Descent into Ngorongoro Crater – Big Five including black rhino',
+      'Seamless transition to luxury beach time in Zanzibar',
+      'Optional excursions: Stone Town, spice tours, snorkeling'
     ]
   },
   {
-    id: 'budget-safari-4-day',
-    title: '4-Day Budget Safari Adventure',
+    id: 'luxury-cross-border-13-day',
+    title: '13-DAY LUXURY CROSS-BORDER SAFARI & BEACH ESCAPE',
     duration: '4 Days / 3 Nights',
     price: '$1,650',
+    href: "/safaris/packages/luxury-13-day",
     rating: 4.7,
     reviews: 203,
-    image: 'https://images.unsplash.com/photo-1586584535372-2ec07cdb83ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwZWxlcGhhbnRzfGVufDF8fHx8MTc2MjU5OTUyMnww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/f2/99/b7/into-wild-africa-luxury.jpg?w=900&h=500&s=1',
     description: 'Affordable safari covering Tarangire, Ngorongoro, and Lake Manyara for budget-conscious travelers.',
     highlights: [
-      'Value for money',
-      'Camping experience',
-      '3 national parks',
-      'Expert guide included',
-      'All meals provided'
+      'Cross-border Big Five viewing in Masai Mara & Serengeti',
+      'Witness the Great Migration (seasonal) from mobile luxury camps',
+      'Tree-climbing lions & diverse ecosystems in Lake Manyara',
+      'Cultural Maasai village visits & private game drives',
+      '3 nights of oceanfront luxury & spa at Sea Cliff Resort Zanzibar'
     ]
   },
+  {
+  id: 'cultural-safari-japanese-7-day',
+  title: '7-DAY SPECIAL CULTURAL & SAFARI ITINERARY FOR JAPANESE GUESTS',
+  duration: '7 Days / 6 Nights',
+  price: '$3,950',
+  rating: 5.0,
+  reviews: 68,  // Placeholder; adjust based on similar cultural packages
+  href: "/safaris/packages/cultural-7-day",
+  image: 'https://www.redetoursandsafaris.com/blog/images/blog-maasai-jumping-dance-3.webp',  // Maasai warriors traditional jumping dance in savannah (authentic cultural highlight)
+  description: 'A gentle, respectful journey for Japanese travelers blending Northern Tanzania’s iconic wildlife (Tarangire elephants & baobabs, Serengeti endless plains, Ngorongoro Crater views) with authentic Maasai cultural encounters, emphasizing harmony between nature and people, calm pacing, reflection, and meaningful connections.',
+  highlights: [
+    'Large elephant herds and iconic baobabs in Tarangire National Park',
+    'Full-day immersion in the endless plains of Serengeti',
+    'Panoramic views of Ngorongoro Crater rim',
+    'Respectful Maasai village visit with traditional songs, dances, and homes',
+    'Gentle pacing focused on nature harmony and cultural reflection'
+  ]
+},
 ];
 
 export default function WildlifeSafariPage() {
   const [isBookingOpen, setBookingOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<{name: string, amount: string} | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<{ name: string, amount: string } | null>(null);
 
-  const handleBookingOpen = (safariPackage: {name: string, amount: string}) => {
+  const handleBookingOpen = (safariPackage: { name: string, amount: string }) => {
     setSelectedPackage(safariPackage);
     setBookingOpen(true);
   };
@@ -101,14 +122,14 @@ export default function WildlifeSafariPage() {
 
             <div className="space-y-8 md:space-y-12">
               {safariPackages.map((pkg, index) => (
-                <div 
+                <div
                   key={pkg.id}
                   className="bg-white rounded-[20px] shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-gray-100"
                 >
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image Section */}
                     <div className="relative h-[300px] md:h-auto">
-                      <ImageWithFallback 
+                      <ImageWithFallback
                         src={pkg.image}
                         alt={pkg.title}
                         className="w-full h-full object-cover"
@@ -157,13 +178,13 @@ export default function WildlifeSafariPage() {
                           </div>
                           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                             <Link
-                              href={`/safaris/packages/${pkg.id}`}
+                              href={pkg.href}
                               className="bg-[#1f751f] text-white px-6 py-3 rounded-[50px] hover:bg-[#0f440f] transition-colors inline-flex items-center justify-center gap-2"
                             >
                               View Details <ChevronRight size={18} />
                             </Link>
                             <button
-                              onClick={() => handleBookingOpen({name: pkg.title, amount: pkg.price})}
+                              onClick={() => handleBookingOpen({ name: pkg.title, amount: pkg.price })}
                               className="border border-[#1f751f] text-[#1f751f] px-6 py-3 rounded-[50px] hover:bg-[#1f751f] hover:text-white transition-colors inline-flex items-center justify-center gap-2"
                             >
                               Inquire
@@ -241,10 +262,10 @@ export default function WildlifeSafariPage() {
           </div>
         </section>
       </div>
-      <BookingModal 
-        isOpen={isBookingOpen} 
-        onClose={() => setBookingOpen(false)} 
-        safariPackage={selectedPackage} 
+      <BookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setBookingOpen(false)}
+        safariPackage={selectedPackage}
       />
     </>
   );

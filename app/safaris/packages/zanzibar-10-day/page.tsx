@@ -12,123 +12,265 @@ import PackageSubNav from '@/components/PackageSubNav'
 import ItineraryAccordion from '@/components/ItineraryAccordion'
 import BookingModal from '@/components/BookingModal';
 
-// const packageGallery = [
-//   'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5MzI2OHww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5OTU5MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1516494982030-fda424f96b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZ29yb25nb3JvJTIwY3JhdGVyfGVufDF8fHx8MTc2MjU5OTUyMnww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1560440293-855922f9cc7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNlcmVuZ2V0aSUyMHN1bnNldHxlbnwxfHx8fDE3NjI1OTk3MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1632315152441-465a943cc211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHRlbnQlMjBjYW1wfGVufDF8fHx8MTc2MjU5OTcwNXww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1662377067390-278529608716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMGdyb3VwJTIwcGVvcGxlfGVufDF8fHx8MTc2MjU5OTcwOHww&ixlib=rb-4.1.0&q=80&w=1080',
-// ];
-
 const packageGallery = [
-  // Hero / Arusha arrival
-  'https://images.unsplash.com/photo-1560440293-855922f9cc7d?w=1200', // coffee plantation style or Arusha landscape
-  // Ngorongoro crater rim
-  'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=1200',
-  // Serengeti plains & migration
-  'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?w=1200',
-  // Central Serengeti wildlife
-  'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?w=1200',
-  // Tarangire elephants & baobabs
-  'https://images.unsplash.com/photo-1506361789125-5e0e2f2e8e6e?w=1200',
-  // Luxury tented camp
-  'https://images.unsplash.com/photo-1632315152441-465a943cc211?w=1200',
+  'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Mount Meru views
+  'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Lake Manyara landscape
+  'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Serengeti plains
+  'https://images.unsplash.com/photo-1516494982030-fda424f96b59?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Ngorongoro Crater
+  'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Zanzibar beach
+  'https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80', // Zanzibar palm trees
 ];
 
 const itinerary = [
   {
     day: 1,
-    title: 'Arrival in Arusha – Warm Tanzanian Welcome',
-    location: 'Arusha',
+    title: 'Arrival in Tanzania – Welcome to Arusha',
+    location: 'Mount Meru Hotel | Arusha, Tanzania',
     activities: [
-      'Arrival at Kilimanjaro International Airport (JRO)',
-      'Warm welcome and transfer to Arusha',
-      'Relax after your journey',
-      'Optional guided coffee plantation walk (luxury option)'
+      'Arrival at Kilimanjaro International Airport',
+      'Warm welcome and private transfer to Arusha',
+      'Scenic drive with views of Mount Meru',
+      'Relax at hotel grounds, pool, or gardens',
+      'Optional visit to nearby cultural sites'
     ],
-    meals: 'Dinner',
-    accommodation: 'Luxury: Arusha Coffee Lodge | Mid-Range: Under the shade safari lodge Arusha',
+    meals: 'Breakfast only',
+    accommodation: 'Mount Meru Hotel',
     images: [
-      'https://www.elewanacollection.com/wp-content/uploads/2023/04/arusha-coffee-lodge-gallery-1.jpg', // use real lodge photo if possible
-      'https://images.unsplash.com/photo-1529350106294-32d4d5f8fdb5?w=800',
+      'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?w=800', // Hotel with mountain view
+      'https://images.unsplash.com/photo-1596790133876-73e292c227d0?w=800',
     ],
     lodgeInfo: {
-      name: 'Arusha Accommodation Options',
+      name: 'Mount Meru Hotel Information',
       features: [
-        'Luxury: Elegant suites in a working coffee plantation',
-        'Mid-Range: Comfortable lodge close to safari start point',
-        'Tranquil setting to recover from travel'
+        'Elegant four-star property with landscaped grounds',
+        'Uninterrupted views of Mount Meru',
+        'Swimming pool and peaceful gardens',
+        'Prime location in Arusha Safari Capital'
       ]
     }
   },
   {
     day: 2,
-    title: 'Arusha to Ngorongoro Conservation Area – The Garden of Eden',
-    location: 'Ngorongoro Crater Rim',
+    title: 'Lake Manyara National Park – First Safari Experience',
+    location: 'Eileen’s Trees Inn | Karatu, Tanzania',
     activities: [
-      'Scenic drive through highlands and villages',
-      'Arrive at Ngorongoro Conservation Area',
-      'Afternoon at leisure with crater views',
-      'Relax at lodge or camp'
+      'Drive through countryside and villages',
+      'Full game drive in Lake Manyara National Park',
+      'Search for tree-climbing lions, elephants, baboons',
+      'Picnic lunch in the park',
+      'Birdwatching (over 400 species)'
     ],
-    meals: 'Breakfast, Lunch, Dinner',
-    accommodation: 'Luxury: Meliá Collection Ngorongoro Lodge | Mid-Range: Ngorongoro Ang’ata Camp',
+    meals: 'All meals included',
+    accommodation: 'Eileen’s Trees Inn',
     images: [
-      'https://www.melia.com/static/img/hoteles/NGORONGORO_LODGE_MELIA_COLLECTION/NGORONGORO_LODGE_MELIA_COLLECTION_GALERIA_1.jpg',
-      'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=800',
+      'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800', // Lake Manyara scenery
+      'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?w=800', // Tree-climbing lion placeholder
     ],
     lodgeInfo: {
-      name: 'Ngorongoro Rim Stay',
+      name: 'Eileen’s Trees Inn Information',
       features: [
-        'Luxury: Dramatic crater-edge views & spa',
-        'Mid-Range: Comfortable tented camp near descent roads',
-        'Perfect base for crater exploration'
+        'Charming lodge in lush gardens and farmland',
+        'Comfortable rooms with warm hospitality',
+        'Relaxed highland atmosphere near crater'
       ]
     }
   },
   {
     day: 3,
-    title: 'Ngorongoro to Central Serengeti – Into the Wilderness',
-    location: 'Central Serengeti (Seronera)',
+    title: 'Journey to Serengeti National Park',
+    location: 'Serengeti Kati Kati Tented Camp | Serengeti, Tanzania',
     activities: [
-      'Morning departure from Ngorongoro',
-      'Scenic drive to Serengeti',
-      'Afternoon game drive in Seronera region',
-      'Excellent predator & plains game sightings'
+      'Drive through Ngorongoro Conservation Area',
+      'Game drive en route with Maasai cultural insights',
+      'Enter Serengeti for afternoon wildlife viewing',
+      'Chance to see Great Migration herds (seasonal)'
     ],
-    meals: 'Breakfast, Lunch, Dinner',
-    accommodation: 'Luxury: Siringit Serengeti Camp | Mid-Range: Ang’ata Camp Central Serengeti',
+    meals: 'All meals included',
+    accommodation: 'Serengeti Kati Kati Tented Camp',
     images: [
-      'https://www.siringit.co.tz/wp-content/uploads/2023/05/siringit-serengeti-camp-gallery-1.jpg', // use real if available
-      'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?w=800',
+      'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?w=800', // Serengeti plains
+      'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?w=800',
     ],
+    lodgeInfo: {
+      name: 'Serengeti Kati Kati Tented Camp Information',
+      features: [
+        'Semi-permanent tented camp in central Serengeti',
+        'Authentic safari atmosphere with en-suite tents',
+        'Prime location for game viewing'
+      ]
+    }
   },
-  // ... continue for Day 4 to Day 9 following the same pattern
+  {
+    day: 4,
+    title: 'Full-Day Safari in Central Serengeti',
+    location: 'Serengeti Kati Kati Tented Camp | Serengeti, Tanzania',
+    activities: [
+      'Early morning and afternoon game drives',
+      'Focus on predators (lions, leopards, cheetahs)',
+      'Picnic lunch in scenic bush location',
+      'Sundowner experience'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Serengeti Kati Kati Tented Camp',
+    images: [
+      'https://images.unsplash.com/photo-1632315152441-465a943cc211?w=800',
+      'https://images.unsplash.com/photo-1723474029262-b368c6018e3d?w=800',
+    ],
+    lodgeInfo: {
+      name: 'Central Serengeti Highlights',
+      features: [
+        'Year-round wildlife due to Seronera River',
+        'Excellent predator sightings',
+        'Immersive full-day exploration'
+      ]
+    }
+  },
+  {
+    day: 5,
+    title: 'Serengeti to Ngorongoro Conservation Area',
+    location: 'Eileen’s Trees Inn | Karatu, Tanzania',
+    activities: [
+      'Early morning game drive in Serengeti',
+      'Scenic drive back through highlands',
+      'Picnic lunch en route',
+      'Panoramic views from Ngorongoro Crater rim'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Eileen’s Trees Inn',
+    images: [
+      'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=800', // Crater rim
+      'https://images.unsplash.com/photo-1612374300229-5c15f80cbf57?w=800',
+    ],
+    lodgeInfo: {
+      name: 'Ngorongoro Transition',
+      features: [
+        'Stunning crater views on arrival',
+        'Return to comfortable Karatu lodge'
+      ]
+    }
+  },
+  {
+    day: 6,
+    title: 'Ngorongoro Crater Tour and Return to Arusha',
+    location: 'Mount Meru Hotel | Arusha, Tanzania',
+    activities: [
+      'Early descent into Ngorongoro Crater',
+      'Half-day game drive on crater floor',
+      'Picnic lunch by hippo pool',
+      'Search for black rhino and Big Five',
+      'Ascend rim and drive back to Arusha'
+    ],
+    meals: 'Breakfast included',
+    accommodation: 'Mount Meru Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=800',
+      'https://images.unsplash.com/photo-1688373882084-715259289a19?w=800', // Rhino placeholder
+    ],
+    lodgeInfo: {
+      name: 'Ngorongoro Crater Highlights',
+      features: [
+        'World’s largest intact caldera',
+        'High wildlife density including black rhino',
+        'Diverse habitats in one place'
+      ]
+    }
+  },
+  {
+    day: 7,
+    title: 'Arusha to Zanzibar – Transition to Tropical Paradise',
+    location: 'Meliá Zanzibar Hotel | Zanzibar, Tanzania',
+    activities: [
+      'Transfer to Arusha Airport',
+      'Domestic flight to Zanzibar',
+      'Private transfer to beach resort',
+      'Leisure time on white-sand beach'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Meliá Zanzibar Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800', // Zanzibar beach
+      'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?w=800',
+    ],
+    lodgeInfo: {
+      name: 'Meliá Zanzibar Hotel Information',
+      features: [
+        'Luxurious beachfront resort on northeast coast',
+        'Pristine white sands and turquoise waters',
+        'Pool, spa, and relaxation facilities'
+      ]
+    }
+  },
+  {
+    day: 8,
+    title: 'Zanzibar – Leisure and Optional Excursions (Day 1)',
+    location: 'Meliá Zanzibar Hotel | Zanzibar, Tanzania',
+    activities: [
+      'Relax on beach or by pool',
+      'Optional: Stone Town tour, spice plantation',
+      'Snorkeling, diving, or dhow cruise'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Meliá Zanzibar Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800',
+      'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?w=800', // Spice tour placeholder
+    ],
+    lodgeInfo: {
+      name: 'Zanzibar Leisure',
+      features: [
+        'Balance of relaxation and cultural options',
+        'Spice Island heritage experiences'
+      ]
+    }
+  },
   {
     day: 9,
-    title: 'Departure from Tanzania',
-    location: 'Kilimanjaro International Airport',
+    title: 'Zanzibar – Leisure and Optional Excursions (Day 2)',
+    location: 'Meliá Zanzibar Hotel | Zanzibar, Tanzania',
     activities: [
-      'Breakfast at lodge/camp',
-      'Transfer to JRO Airport',
-      'Farewell & departure'
+      'Full day at leisure or excursions',
+      'Spa treatments, beach walks, ocean swimming'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Meliá Zanzibar Hotel',
+    images: [
+      'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800',
+    ],
+    lodgeInfo: {
+      name: 'Extended Zanzibar Relaxation',
+      features: [
+        'Unwind after safari adventure',
+        'Optional adventures available'
+      ]
+    }
+  },
+  {
+    day: 10,
+    title: 'Departure from Zanzibar',
+    location: 'Zanzibar International Airport',
+    activities: [
+      'Leisurely breakfast and beach time',
+      'Transfer to airport',
+      'Onward flight home'
     ],
     meals: 'Breakfast',
-    accommodation: 'End of safari',
-    images: [],
+    accommodation: 'End of journey',
+    images: [
+      'https://images.unsplash.com/photo-1564760055094-0b5c0b0c0b0c?w=800',
+    ],
     lodgeInfo: {
-      name: 'Journey Complete',
-      features: ['Unforgettable memories of Northern Tanzania']
+      name: 'Farewell Zanzibar',
+      features: [
+        'Memorable end to wildlife + beach experience'
+      ]
     }
   }
 ];
 
 export default function SerengeriPackagePage() {
   const [isBookingOpen, setBookingOpen] = useState(false);
-  const packageName = "9-Day Exclusive Northern Tanzania Safari";
-  const packagePrice = "From $5,200";  // mid-range base — you can make this dynamic later
-  const duration = "9 Days / 8 Nights";
+  const packageName = "10-Day Tanzania Safari & Zanzibar Beach Experience";
+  const packagePrice = "$6,356";
 
   return (
     <div className="w-full">
@@ -136,7 +278,7 @@ export default function SerengeriPackagePage() {
       <section className="relative h-[400px] md:h-[550px]">
         <ImageWithFallback
           src={packageGallery[0]}
-          alt="Serengeti Safari"
+          alt="Zanzibar Beach & Safari"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -149,7 +291,7 @@ export default function SerengeriPackagePage() {
               <ChevronRight size={16} />
               <Link href="/safaris" className="hover:text-[#c97500]">Safaris</Link>
               <ChevronRight size={16} />
-              <span className="text-white/70">{packageName}</span>
+              <span className="text-white/70">10-Day Tanzania & Zanzibar</span>
             </div>
           </div>
         </div>
@@ -165,11 +307,11 @@ export default function SerengeriPackagePage() {
                 <div className="flex flex-wrap items-center gap-4 text-[15px] sm:text-[16px]">
                   <div className="flex items-center gap-2">
                     <Clock size={18} />
-                    <span>5 Days / 4 Nights</span>
+                    <span>10 Days / 9 Nights</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin size={18} />
-                    <span>{duration}</span>
+                    <span>Northern Tanzania & Zanzibar</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="fill-[#fbbf24] text-[#fbbf24]" size={18} />
@@ -198,12 +340,12 @@ export default function SerengeriPackagePage() {
             <div className="lg:col-span-2 space-y-8">
               {/* Overview */}
               <div id="overview" className="bg-white rounded-[20px] p-6 md:p-8 shadow-md">
-                <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Safari Overview</h2>
+                <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Safari & Beach Overview</h2>
                 <p className="text-[16px] text-[#686868] leading-[28px] mb-4">
-                  Embark on an unforgettable safari journey through Northern Tanzania, a land of extraordinary contrasts where ancient volcanic craters cradle dense wildlife populations, endless savannahs stretch to the horizon, and iconic ecosystems host one of the greatest wildlife spectacles on Earth.
+                  Embark on a remarkable 10-day journey blending thrilling wildlife safaris in Northern Tanzania with relaxing beach luxury in Zanzibar. Experience iconic parks like Lake Manyara, Serengeti, and Ngorongoro Crater, then unwind on pristine white-sand beaches.
                 </p>
                 <p className="text-[16px] text-[#686868] leading-[28px]">
-                  This meticulously crafted itinerary blends Tanzania’s most celebrated destinations—Arusha, Ngorongoro Conservation Area, Serengeti National Park, and Tarangire National Park—into one seamless and immersive safari experience. Guests may choose between Luxury and Mid-Range accommodation options within the same itinerary framework, ensuring flexibility without compromising the quality of wildlife encounters, guiding, and overall experience.
+                  This itinerary offers adventure, culture, and coastal indulgence with comfortable accommodations, expert guiding, and seamless transitions.
                 </p>
 
                 {/* Quick Facts */}
@@ -213,14 +355,14 @@ export default function SerengeriPackagePage() {
                       <Clock className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Duration</div>
-                    <div className="text-[16px] text-[#333333]">5 Days</div>
+                    <div className="text-[16px] text-[#333333]">10 Days</div>
                   </div>
                   <div className="text-center">
                     <div className="bg-[#1f751f]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
                       <Users className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Group Size</div>
-                    <div className="text-[16px] text-[#333333]">2-6 People</div>
+                    <div className="text-[16px] text-[#333333]">2+ People</div>
                   </div>
                   <div className="text-center">
                     <div className="bg-[#1f751f]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -234,7 +376,7 @@ export default function SerengeriPackagePage() {
                       <MapPin className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Start/End</div>
-                    <div className="text-[16px] text-[#333333]">Arusha</div>
+                    <div className="text-[16px] text-[#333333]">Kilimanjaro / Zanzibar</div>
                   </div>
                 </div>
               </div>
@@ -247,7 +389,7 @@ export default function SerengeriPackagePage() {
                     <div key={index} className="relative h-[180px] sm:h-[220px] rounded-[15px] overflow-hidden group cursor-pointer">
                       <ImageWithFallback
                         src={image}
-                        alt={`Safari photo ${index + 1}`}
+                        alt={`Experience photo ${index + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -268,19 +410,19 @@ export default function SerengeriPackagePage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
                     <div>
-                      <div className="text-[18px] text-[#333333]">Luxury Option (2 people)</div>
-                      <div className="text-[14px] text-[#686868]">Per person sharing</div>
+                      <div className="text-[18px] text-[#333333]">Per Person (2+ Sharing)</div>
+                      <div className="text-[14px] text-[#686868]">Based on double occupancy</div>
                     </div>
-                    <div className="text-[24px] text-[#1f751f]">$9,840</div>
+                    <div className="text-[24px] text-[#1f751f]">{packagePrice}</div>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
+                  {/* <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
                     <div>
-                      <div className="text-[18px] text-[#333333]">Mid-Range Option (2 people)</div>
+                      <div className="text-[18px] text-[#333333]">3-4 People</div>
                       <div className="text-[14px] text-[#686868]">Per person sharing</div>
                     </div>
-                    <div className="text-[24px] text-[#1f751f]">$5,200</div>
+                    <div className="text-[24px] text-[#1f751f]">$2,650</div>
                   </div>
-                  {/* <div className="flex items-center justify-between p-4 bg-[#1f751f]/10 rounded-[10px] border-2 border-[#1f751f]">
+                  <div className="flex items-center justify-between p-4 bg-[#1f751f]/10 rounded-[10px] border-2 border-[#1f751f]">
                     <div>
                       <div className="text-[18px] text-[#333333]">5-6 People</div>
                       <div className="text-[14px] text-[#686868]">Per person sharing</div>
@@ -309,14 +451,13 @@ export default function SerengeriPackagePage() {
                   </h3>
                   <ul className="space-y-2">
                     {[
-                      'All park fees and taxes',
-                      'Professional safari guide',
-                      '4x4 safari vehicle',
-                      'Accommodation as specified',
+                      'All accommodation as specified',
                       'All meals as per itinerary',
-                      'Drinking water during safari',
-                      'Airport transfers',
-                      'Game drives as specified'
+                      'All scheduled domestic flights',
+                      'Private safari vehicle & professional guide',
+                      'All park entrance & conservation fees',
+                      'Game drives and activities described',
+                      'Airport transfers'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[15px] text-[#686868]">
                         <Check className="w-4 h-4 text-[#1f751f] mt-1 flex-shrink-0" />
@@ -336,11 +477,9 @@ export default function SerengeriPackagePage() {
                       'International flights',
                       'Visa fees',
                       'Travel insurance',
-                      'Personal expenses',
-                      'Alcoholic beverages',
+                      'Personal expenses & alcoholic beverages',
                       'Tips and gratuities',
-                      'Optional activities',
-                      'Items not mentioned'
+                      'Optional excursions not listed'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[15px] text-[#686868]">
                         <X className="w-4 h-4 text-red-500 mt-1 flex-shrink-0" />
@@ -533,10 +672,10 @@ export default function SerengeriPackagePage() {
           </div>
         </div>
       </section>
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setBookingOpen(false)}
-        safariPackage={{ name: packageName, amount: packagePrice }}
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setBookingOpen(false)} 
+        safariPackage={{name: packageName, amount: packagePrice}} 
       />
     </div>
   )

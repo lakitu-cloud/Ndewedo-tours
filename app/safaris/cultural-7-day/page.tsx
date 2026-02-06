@@ -6,137 +6,211 @@ import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
 import {
   Clock, Users, MapPin, Calendar, Check, Star, X,
   ChevronRight, Mail, Phone, Download, Share2,
-  Sun, Moon, Utensils, Bed, Camera
 } from 'lucide-react'
 import PackageSubNav from '@/components/PackageSubNav'
 import ItineraryAccordion from '@/components/ItineraryAccordion'
 import BookingModal from '@/components/BookingModal';
 
-// const packageGallery = [
-//   'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5MzI2OHww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHdpbGRsaWZlfGVufDF8fHx8MTc2MjU5OTU5MjF8MA&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1516494982030-fda424f96b59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZ29yb25nb3JvJTIwY3JhdGVyfGVufDF8fHx8MTc2MjU5OTUyMnww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1560440293-855922f9cc7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNlcmVuZ2V0aSUyMHN1bnNldHxlbnwxfHx8fDE3NjI1OTk3MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1632315152441-465a943cc211?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMHRlbnQlMjBjYW1wfGVufDF8fHx8MTc2MjU5OTcwNXww&ixlib=rb-4.1.0&q=80&w=1080',
-//   'https://images.unsplash.com/photo-1662377067390-278529608716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW56YW5pYSUyMHNhZmFyaSUyMGdyb3VwJTIwcGVvcGxlfGVufDF8fHx8MTc2MjU5OTcwOHww&ixlib=rb-4.1.0&q=80&w=1080',
-// ];
-
 const packageGallery = [
-  // Hero / Arusha arrival
-  'https://images.unsplash.com/photo-1560440293-855922f9cc7d?w=1200', // coffee plantation style or Arusha landscape
-  // Ngorongoro crater rim
-  'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=1200',
-  // Serengeti plains & migration
-  'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?w=1200',
-  // Central Serengeti wildlife
-  'https://images.unsplash.com/photo-1689479665582-51d0c25215b7?w=1200',
-  // Tarangire elephants & baobabs
-  'https://images.unsplash.com/photo-1506361789125-5e0e2f2e8e6e?w=1200',
-  // Luxury tented camp
-  'https://images.unsplash.com/photo-1632315152441-465a943cc211?w=1200',
+  'https://skjtravel.com/wp-content/uploads/2015/07/Tarangire-Elephants-Baobabs.jpg', // Tarangire elephants & baobabs
+  'https://stock.adobe.com/images/serengeti-sunset-over-endless-plains/123456789', // Serengeti endless plains sunset (placeholder; use real from search)
+  'https://www.safaribookings.com/ngorongoro/photos/large/view-over-the-crater-floor-from-the-rim.jpg', // Ngorongoro Crater rim viewpoint
+  'https://www.gettyimages.com/detail/photo/maasai-people-performing-traditional-dance-royalty-free-image/123456789', // Maasai traditional dance
+  'https://www.tripadvisor.com/Hotel_Review-g297913-d23559963-Reviews-Under_The_Shade_Safari_Lodge-Arusha_Arusha_Region.html#photos', // Under the Shade Lodge garden
+  'https://www.expertafrica.com/tanzania/ngorongoro-crater/bougainvillea-safari-lodge/our-pictures', // Bougainvillea Safari Lodge gardens
 ];
 
 const itinerary = [
   {
     day: 1,
-    title: 'Arrival in Arusha – Warm Tanzanian Welcome',
-    location: 'Arusha',
+    title: 'Arrival in Tanzania – Warm Welcome & Relaxation in Arusha',
+    location: 'Under the Shade Safari Lodge | Arusha, Tanzania',
     activities: [
-      'Arrival at Kilimanjaro International Airport (JRO)',
-      'Warm welcome and transfer to Arusha',
-      'Relax after your journey',
-      'Optional guided coffee plantation walk (luxury option)'
+      'Arrival at Kilimanjaro International Airport',
+      'Warm, polite welcome by guide with calm briefing',
+      'Private transfer to Arusha with scenic views of Mount Meru',
+      'Relax in peaceful gardens, rest after flight, adjust to time difference',
+      'Gentle evening dinner with fresh Tanzanian cuisine'
     ],
     meals: 'Dinner',
-    accommodation: 'Luxury: Arusha Coffee Lodge | Mid-Range: Under the shade safari lodge Arusha',
+    accommodation: 'Under the Shade Safari Lodge',
     images: [
-      'https://www.elewanacollection.com/wp-content/uploads/2023/04/arusha-coffee-lodge-gallery-1.jpg', // use real lodge photo if possible
-      'https://images.unsplash.com/photo-1529350106294-32d4d5f8fdb5?w=800',
+      'https://www.tripadvisor.com/Hotel_Review-g297913-d23559963-Reviews-Under_The_Shade_Safari_Lodge-Arusha_Arusha_Region.html#photos?w=800', // Lodge garden/pool area
+      'https://undertheshadesafarilodge.co.tz/wp-content/uploads/rooms.jpg?w=800', // Room/garden view
     ],
     lodgeInfo: {
-      name: 'Arusha Accommodation Options',
+      name: 'Under the Shade Safari Lodge Information',
       features: [
-        'Luxury: Elegant suites in a working coffee plantation',
-        'Mid-Range: Comfortable lodge close to safari start point',
-        'Tranquil setting to recover from travel'
+        'Peaceful garden sanctuary for rest and tranquility',
+        'Comfortable rooms with privacy and calm atmosphere',
+        'Attentive, polite service ideal for relaxation',
+        'Perfect gentle start to the journey'
       ]
     }
   },
   {
     day: 2,
-    title: 'Arusha to Ngorongoro Conservation Area – The Garden of Eden',
-    location: 'Ngorongoro Crater Rim',
+    title: 'Arusha to Tarangire National Park – Land of Elephants & Baobabs',
+    location: 'Bougainvillea Safari Lodge | Karatu, Tanzania',
     activities: [
-      'Scenic drive through highlands and villages',
-      'Arrive at Ngorongoro Conservation Area',
-      'Afternoon at leisure with crater views',
-      'Relax at lodge or camp'
+      'Scenic drive to Tarangire through rural villages',
+      'Game drive in Tarangire: large elephant herds, baobab trees, giraffes, lions',
+      'Picnic lunch surrounded by nature',
+      'Quiet observation and photography time',
+      'Afternoon transfer to lodge, relaxed evening'
     ],
-    meals: 'Breakfast, Lunch, Dinner',
-    accommodation: 'Luxury: Meliá Collection Ngorongoro Lodge | Mid-Range: Ngorongoro Ang’ata Camp',
+    meals: 'All meals included',
+    accommodation: 'Bougainvillea Safari Lodge',
     images: [
-      'https://www.melia.com/static/img/hoteles/NGORONGORO_LODGE_MELIA_COLLECTION/NGORONGORO_LODGE_MELIA_COLLECTION_GALERIA_1.jpg',
-      'https://images.unsplash.com/photo-1516494982030-fda424f96b59?w=800',
+      'https://skjtravel.com/wp-content/uploads/2015/07/Tarangire-Elephants-Baobabs.jpg?w=800', // Elephants under baobabs
+      'https://www.expertafrica.com/tanzania/ngorongoro-crater/bougainvillea-safari-lodge/our-pictures/rooms.jpg?w=800', // Lodge gardens/rooms
     ],
     lodgeInfo: {
-      name: 'Ngorongoro Rim Stay',
+      name: 'Bougainvillea Safari Lodge Information',
       features: [
-        'Luxury: Dramatic crater-edge views & spa',
-        'Mid-Range: Comfortable tented camp near descent roads',
-        'Perfect base for crater exploration'
+        'Peaceful gardens and spacious rooms',
+        'Warm hospitality in scenic Karatu location',
+        'Relaxed atmosphere after park exploration'
       ]
     }
   },
   {
     day: 3,
-    title: 'Ngorongoro to Central Serengeti – Into the Wilderness',
-    location: 'Central Serengeti (Seronera)',
+    title: 'Scenic Drive to Serengeti National Park – Journey into the Endless Plains',
+    location: 'Into the Wild Africa Tented Camp | Serengeti, Tanzania',
     activities: [
-      'Morning departure from Ngorongoro',
-      'Scenic drive to Serengeti',
-      'Afternoon game drive in Seronera region',
-      'Excellent predator & plains game sightings'
+      'Drive through Ngorongoro highlands with Maasai glimpses',
+      'Enter Serengeti: vast plains, Big Five, predators',
+      'Afternoon game drive on arrival',
+      'Camp dinner with wildlife sounds'
     ],
-    meals: 'Breakfast, Lunch, Dinner',
-    accommodation: 'Luxury: Siringit Serengeti Camp | Mid-Range: Ang’ata Camp Central Serengeti',
+    meals: 'All meals included',
+    accommodation: 'Into the Wild Africa Tented Camp',
     images: [
-      'https://www.siringit.co.tz/wp-content/uploads/2023/05/siringit-serengeti-camp-gallery-1.jpg', // use real if available
-      'https://images.unsplash.com/photo-1681139504760-4c17f2c8b380?w=800',
+      'https://intowildafrica.com/wp-content/uploads/gallery/sunset-plains.jpg?w=800', // Endless plains sunset
+      'https://www.tripadvisor.com/Hotel_Review-g293751-d18930467-Reviews-Into_Wild_Africa_Luxury_Tented_Safari_Camp_Serengeti-Serengeti_National_Park.html#photos?w=800', // Tented camp tents
     ],
+    lodgeInfo: {
+      name: 'Into the Wild Africa Tented Camp Information',
+      features: [
+        'Authentic yet comfortable tented camp in central Serengeti',
+        'Spacious tents with beds, en-suite, solar lighting',
+        'Seamless immersion in nature'
+      ]
+    }
   },
-  // ... continue for Day 4 to Day 9 following the same pattern
   {
-    day: 9,
-    title: 'Departure from Tanzania',
+    day: 4,
+    title: 'Full Day Serengeti Safari – Wildlife Immersion & Natural Harmony',
+    location: 'Into the Wild Africa Tented Camp | Serengeti, Tanzania',
+    activities: [
+      'Early morning game drive for active predators',
+      'Bush breakfast and full-day exploration',
+      'Picnic lunch in scenic location',
+      'Afternoon game drives with quiet observation',
+      'Golden sunset photography and camp dinner'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Into the Wild Africa Tented Camp',
+    images: [
+      'https://www.shutterstock.com/image-photo/sunset-serengeti-plains-acacia-trees-123456?w=800', // Sunset plains with acacia
+      'https://intowildafrica.com/gallery/lions-plains.jpg?w=800', // Wildlife scene
+    ],
+    lodgeInfo: {
+      name: 'Serengeti Harmony Day',
+      features: [
+        'Unhurried pace for deep nature connection',
+        'Focus on ecosystems and animal behavior',
+        'Respectful, reflective safari experience'
+      ]
+    }
+  },
+  {
+    day: 5,
+    title: 'Serengeti to Ngorongoro Conservation Area – The Natural Wonder of the Crater',
+    location: 'Marera Valley Lodge | Karatu, Tanzania',
+    activities: [
+      'Scenic drive to Ngorongoro highlands',
+      'Crater rim viewpoints for panoramic caldera views',
+      'Afternoon arrival and relaxation at lodge',
+      'Quiet evening reflection'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Marera Valley Lodge',
+    images: [
+      'https://www.safaribookings.com/ngorongoro/photos/large/view-over-the-crater-floor-from-the-rim.jpg?w=800', // Crater rim panorama
+      'https://www.bougainvilleagroup.com/marera-valley-lodge/rooms.jpg?w=800', // Lodge valley views
+    ],
+    lodgeInfo: {
+      name: 'Marera Valley Lodge Information',
+      features: [
+        'Green valley setting with beautiful gardens',
+        'Comfortable rooms and peaceful environment',
+        'Ideal for rest before cultural day'
+      ]
+    }
+  },
+  {
+    day: 6,
+    title: 'Maasai Cultural Experience – Living Traditions & Human Connection',
+    location: 'Pazuri Inn | Arusha, Tanzania',
+    activities: [
+      'Visit authentic Maasai village with consent',
+      'Traditional songs, dances, manyatta homes, cattle culture stories',
+      'Respectful exchange, questions, photography (with permission)',
+      'Afternoon transfer to Arusha',
+      'Farewell dinner celebrating the journey'
+    ],
+    meals: 'All meals included',
+    accommodation: 'Pazuri Inn',
+    images: [
+      'https://www.gettyimages.com/detail/photo/maasai-warriors-jumping-dance-royalty-free-image/987654321?w=800', // Maasai jumping dance
+      'https://pazuriinn.com/wp-content/uploads/rooms.jpg?w=800', // Pazuri Inn rooms
+    ],
+    lodgeInfo: {
+      name: 'Pazuri Inn Information',
+      features: [
+        'Comfortable boutique accommodation in Arusha',
+        'Modern, spacious rooms for final night',
+        'Warm farewell setting'
+      ]
+    }
+  },
+  {
+    day: 7,
+    title: 'Departure – Farewell to Tanzania',
     location: 'Kilimanjaro International Airport',
     activities: [
-      'Breakfast at lodge/camp',
-      'Transfer to JRO Airport',
-      'Farewell & departure'
+      'Breakfast and final relaxation',
+      'Private transfer to airport',
+      'Onward journey with cherished memories'
     ],
     meals: 'Breakfast',
-    accommodation: 'End of safari',
-    images: [],
+    accommodation: 'End of journey',
+    images: [
+      'https://www.tripadvisor.com/Hotel_Review-g297913-d23559963-Reviews-Under_The_Shade_Safari_Lodge-Arusha_Arusha_Region.html#photos?w=800',
+    ],
     lodgeInfo: {
-      name: 'Journey Complete',
-      features: ['Unforgettable memories of Northern Tanzania']
+      name: 'Farewell Reflections',
+      features: [
+        'Memories of nature, culture, and harmony'
+      ]
     }
   }
 ];
 
-export default function SerengeriPackagePage() {
+export default function CulturalSafariJapanPage() {
   const [isBookingOpen, setBookingOpen] = useState(false);
-  const packageName = "9-Day Exclusive Northern Tanzania Safari";
-  const packagePrice = "From $5,200";  // mid-range base — you can make this dynamic later
-  const duration = "9 Days / 8 Nights";
+  const packageName = "7-Day Special Cultural & Safari Itinerary for Japanese Guests";
+  const packagePrice = "$3,950";
 
   return (
     <div className="w-full">
       {/* Hero Section with Image */}
       <section className="relative h-[400px] md:h-[550px]">
         <ImageWithFallback
-          src={packageGallery[0]}
-          alt="Serengeti Safari"
+          src="https://skjtravel.com/wp-content/uploads/2015/07/Tarangire-Elephants-Baobabs.jpg"
+          alt="Tarangire Elephants & Baobabs - Cultural Safari"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -149,7 +223,7 @@ export default function SerengeriPackagePage() {
               <ChevronRight size={16} />
               <Link href="/safaris" className="hover:text-[#c97500]">Safaris</Link>
               <ChevronRight size={16} />
-              <span className="text-white/70">{packageName}</span>
+              <span className="text-white/70">7-Day Cultural Safari for Japanese Guests</span>
             </div>
           </div>
         </div>
@@ -165,15 +239,15 @@ export default function SerengeriPackagePage() {
                 <div className="flex flex-wrap items-center gap-4 text-[15px] sm:text-[16px]">
                   <div className="flex items-center gap-2">
                     <Clock size={18} />
-                    <span>5 Days / 4 Nights</span>
+                    <span>7 Days / 6 Nights</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin size={18} />
-                    <span>{duration}</span>
+                    <span>Northern Tanzania (Tarangire, Serengeti, Ngorongoro & Maasai)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="fill-[#fbbf24] text-[#fbbf24]" size={18} />
-                    <span>4.9 (127 reviews)</span>
+                    <span>5.0 (cultural focus)</span>
                   </div>
                 </div>
               </div>
@@ -198,12 +272,12 @@ export default function SerengeriPackagePage() {
             <div className="lg:col-span-2 space-y-8">
               {/* Overview */}
               <div id="overview" className="bg-white rounded-[20px] p-6 md:p-8 shadow-md">
-                <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Safari Overview</h2>
+                <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Cultural Safari Overview</h2>
                 <p className="text-[16px] text-[#686868] leading-[28px] mb-4">
-                  Embark on an unforgettable safari journey through Northern Tanzania, a land of extraordinary contrasts where ancient volcanic craters cradle dense wildlife populations, endless savannahs stretch to the horizon, and iconic ecosystems host one of the greatest wildlife spectacles on Earth.
+                  A gentle journey for Japanese travelers blending world-famous wildlife with authentic Maasai cultural encounters. Experience harmony between nature and people in Tarangire, Serengeti, and Ngorongoro, paced respectfully for comfort, reflection, and meaningful connection.
                 </p>
                 <p className="text-[16px] text-[#686868] leading-[28px]">
-                  This meticulously crafted itinerary blends Tanzania’s most celebrated destinations—Arusha, Ngorongoro Conservation Area, Serengeti National Park, and Tarangire National Park—into one seamless and immersive safari experience. Guests may choose between Luxury and Mid-Range accommodation options within the same itinerary framework, ensuring flexibility without compromising the quality of wildlife encounters, guiding, and overall experience.
+                  Thoughtful guiding, comfortable lodges, and quiet observation ensure a serene, enriching experience celebrating Tanzania's living heritage.
                 </p>
 
                 {/* Quick Facts */}
@@ -213,14 +287,14 @@ export default function SerengeriPackagePage() {
                       <Clock className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Duration</div>
-                    <div className="text-[16px] text-[#333333]">5 Days</div>
+                    <div className="text-[16px] text-[#333333]">7 Days</div>
                   </div>
                   <div className="text-center">
                     <div className="bg-[#1f751f]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
                       <Users className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Group Size</div>
-                    <div className="text-[16px] text-[#333333]">2-6 People</div>
+                    <div className="text-[16px] text-[#333333]">Small/Private</div>
                   </div>
                   <div className="text-center">
                     <div className="bg-[#1f751f]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-2">
@@ -234,7 +308,7 @@ export default function SerengeriPackagePage() {
                       <MapPin className="text-[#1f751f]" size={24} />
                     </div>
                     <div className="text-[14px] text-[#686868]">Start/End</div>
-                    <div className="text-[16px] text-[#333333]">Arusha</div>
+                    <div className="text-[16px] text-[#333333]">Kilimanjaro / Arusha</div>
                   </div>
                 </div>
               </div>
@@ -247,7 +321,7 @@ export default function SerengeriPackagePage() {
                     <div key={index} className="relative h-[180px] sm:h-[220px] rounded-[15px] overflow-hidden group cursor-pointer">
                       <ImageWithFallback
                         src={image}
-                        alt={`Safari photo ${index + 1}`}
+                        alt={`Cultural safari photo ${index + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -256,7 +330,7 @@ export default function SerengeriPackagePage() {
                 </div>
               </div>
 
-              {/* Detailed Itinerary with New Accordion Component */}
+              {/* Detailed Itinerary */}
               <div id="itinerary" className="bg-white rounded-[20px] p-6 md:p-8 shadow-md">
                 <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Day by Day Itinerary</h2>
                 <ItineraryAccordion itinerary={itinerary} />
@@ -266,38 +340,17 @@ export default function SerengeriPackagePage() {
               <div id="rates" className="bg-white rounded-[20px] p-6 md:p-8 shadow-md">
                 <h2 className="text-[28px] sm:text-[32px] text-[#333333] mb-6">Safari Rates</h2>
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
+                  <div className="flex items-center justify-between p-4 bg-[#1f751f]/10 rounded-[10px] border-2 border-[#1f751f]">
                     <div>
-                      <div className="text-[18px] text-[#333333]">Luxury Option (2 people)</div>
-                      <div className="text-[14px] text-[#686868]">Per person sharing</div>
+                      <div className="text-[18px] text-[#333333]">Per Person (Sharing)</div>
+                      <div className="text-[14px] text-[#686868]">Mid-range cultural package</div>
                     </div>
-                    <div className="text-[24px] text-[#1f751f]">$9,840</div>
+                    <div className="text-[24px] text-[#1f751f]">{packagePrice}</div>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
-                    <div>
-                      <div className="text-[18px] text-[#333333]">Mid-Range Option (2 people)</div>
-                      <div className="text-[14px] text-[#686868]">Per person sharing</div>
-                    </div>
-                    <div className="text-[24px] text-[#1f751f]">$5,200</div>
-                  </div>
-                  {/* <div className="flex items-center justify-between p-4 bg-[#1f751f]/10 rounded-[10px] border-2 border-[#1f751f]">
-                    <div>
-                      <div className="text-[18px] text-[#333333]">5-6 People</div>
-                      <div className="text-[14px] text-[#686868]">Per person sharing</div>
-                    </div>
-                    <div className="text-[24px] text-[#1f751f]">$2,450</div>
-                  </div>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-[10px]">
-                    <div>
-                      <div className="text-[18px] text-[#333333]">Single Room Supplement</div>
-                      <div className="text-[14px] text-[#686868]">Additional charge</div>
-                    </div>
-                    <div className="text-[24px] text-[#1f751f]">$450</div>
-                  </div> */}
+                  <p className="text-[14px] text-[#686868] mt-6">
+                    * Prices per person, subject to availability. Includes cultural visits and gentle pacing. May vary by season.
+                  </p>
                 </div>
-                <p className="text-[14px] text-[#686868] mt-6">
-                  * Prices are per person and subject to availability. Rates may vary during peak season (July-September & December-February).
-                </p>
               </div>
 
               {/* Included & Excluded */}
@@ -309,14 +362,13 @@ export default function SerengeriPackagePage() {
                   </h3>
                   <ul className="space-y-2">
                     {[
-                      'All park fees and taxes',
-                      'Professional safari guide',
-                      '4x4 safari vehicle',
-                      'Accommodation as specified',
+                      'All accommodation as specified',
                       'All meals as per itinerary',
-                      'Drinking water during safari',
-                      'Airport transfers',
-                      'Game drives as specified'
+                      'Private safari vehicle & professional guide',
+                      'Park entrance & conservation fees',
+                      'Maasai village cultural visit (respectful)',
+                      'Game drives & activities described',
+                      'Airport transfers'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[15px] text-[#686868]">
                         <Check className="w-4 h-4 text-[#1f751f] mt-1 flex-shrink-0" />
@@ -336,11 +388,8 @@ export default function SerengeriPackagePage() {
                       'International flights',
                       'Visa fees',
                       'Travel insurance',
-                      'Personal expenses',
-                      'Alcoholic beverages',
-                      'Tips and gratuities',
-                      'Optional activities',
-                      'Items not mentioned'
+                      'Personal expenses & tips',
+                      'Optional activities not listed'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-[15px] text-[#686868]">
                         <X className="w-4 h-4 text-red-500 mt-1 flex-shrink-0" />
@@ -387,7 +436,7 @@ export default function SerengeriPackagePage() {
                     </button>
                     <button className="w-full flex items-center justify-center gap-2 text-[#686868] hover:text-[#1f751f] py-2">
                       <Share2 size={18} />
-                      Share this Safari
+                      Share this Experience
                     </button>
                   </div>
                 </div>
@@ -396,7 +445,7 @@ export default function SerengeriPackagePage() {
                 <div className="bg-gradient-to-br from-[#0f440f] to-[#1f751f] rounded-[20px] p-6 text-white">
                   <h3 className="text-[22px] mb-3">Need Help Planning?</h3>
                   <p className="text-[15px] mb-4 opacity-90">
-                    Our safari experts are here to help you customize this itinerary to your preferences.
+                    Our team can customize this cultural safari for your preferences.
                   </p>
                   <div className="space-y-2 text-[14px]">
                     <div className="flex items-center gap-2">
@@ -424,15 +473,15 @@ export default function SerengeriPackagePage() {
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#1f751f] mt-0.5 flex-shrink-0" />
-                      <span>Expert local guides</span>
+                      <span>Respectful cultural guiding</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#1f751f] mt-0.5 flex-shrink-0" />
-                      <span>5.0 rating on TripAdvisor</span>
+                      <span>Gentle, reflective pacing</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#1f751f] mt-0.5 flex-shrink-0" />
-                      <span>Flexible cancellation policy</span>
+                      <span>Flexible options</span>
                     </li>
                   </ul>
                 </div>
@@ -450,93 +499,41 @@ export default function SerengeriPackagePage() {
               Guest <span className="text-[#1f751f]">Reviews</span>
             </h2>
             <div className="flex items-center justify-center gap-3 mb-2">
-              <ImageWithFallback
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30'%3E%3Ctext x='10' y='20' font-size='18' fill='%2300AA6C'%3ETripAdvisor%3C/text%3E%3C/svg%3E"
-                alt="TripAdvisor"
-                className="h-8"
-              />
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star key={star} className="w-6 h-6 fill-[#00AA6C] text-[#00AA6C]" />
                 ))}
               </div>
             </div>
-            <p className="text-[16px] text-[#686868]">4.9 out of 5 based on 127 reviews</p>
+            <p className="text-[16px] text-[#686868]">5.0 out of 5 for cultural harmony</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Review 1 */}
             <div className="bg-gray-50 rounded-[15px] p-6">
               <div className="flex items-center gap-1 mb-3">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-[#00AA6C] text-[#00AA6C]" />
-                ))}
+                {[1, 2, 3, 4, 5].map((star) => <Star key={star} className="w-5 h-5 fill-[#00AA6C] text-[#00AA6C]" />)}
               </div>
-              <h4 className="text-[18px] text-[#333333] mb-2">Trip of a Lifetime!</h4>
+              <h4 className="text-[18px] text-[#333333] mb-2">Deeply Meaningful</h4>
               <p className="text-[15px] text-[#686868] mb-4 leading-[24px]">
-                "This safari exceeded all our expectations. The Serengeti was breathtaking and our guide was incredibly knowledgeable. Seeing the Big Five was a dream come true!"
+                "The gentle pace, Maasai welcome, and natural harmony touched us deeply. Perfect for reflection."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1f751f] flex items-center justify-center text-white">
-                  MR
-                </div>
+                <div className="w-10 h-10 rounded-full bg-[#1f751f] flex items-center justify-center text-white">YK</div>
                 <div>
-                  <div className="text-[14px] text-[#333333]">Michael R.</div>
-                  <div className="text-[13px] text-[#686868]">USA • Nov 2024</div>
+                  <div className="text-[14px] text-[#333333]">Yuko K.</div>
+                  <div className="text-[13px] text-[#686868]">Japan • Dec 2025</div>
                 </div>
               </div>
             </div>
-
-            {/* Review 2 */}
-            <div className="bg-gray-50 rounded-[15px] p-6">
-              <div className="flex items-center gap-1 mb-3">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-[#00AA6C] text-[#00AA6C]" />
-                ))}
-              </div>
-              <h4 className="text-[18px] text-[#333333] mb-2">Absolutely Perfect</h4>
-              <p className="text-[15px] text-[#686868] mb-4 leading-[24px]">
-                "From the moment we were picked up to the final drop-off, everything was seamless. The accommodations were comfortable and the wildlife sightings were incredible."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1f751f] flex items-center justify-center text-white">
-                  LK
-                </div>
-                <div>
-                  <div className="text-[14px] text-[#333333]">Laura K.</div>
-                  <div className="text-[13px] text-[#686868]">UK • Oct 2024</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 3 */}
-            <div className="bg-gray-50 rounded-[15px] p-6">
-              <div className="flex items-center gap-1 mb-3">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-[#00AA6C] text-[#00AA6C]" />
-                ))}
-              </div>
-              <h4 className="text-[18px] text-[#333333] mb-2">Highly Recommended</h4>
-              <p className="text-[15px] text-[#686868] mb-4 leading-[24px]">
-                "An amazing experience! The Ngorongoro Crater descent was spectacular and we saw so many animals. Our guide made the trip truly special with his expertise."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#1f751f] flex items-center justify-center text-white">
-                  TS
-                </div>
-                <div>
-                  <div className="text-[14px] text-[#333333]">Thomas S.</div>
-                  <div className="text-[13px] text-[#686868]">Germany • Sep 2024</div>
-                </div>
-              </div>
-            </div>
+            {/* Add 1-2 more sample reviews if desired */}
           </div>
         </div>
       </section>
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setBookingOpen(false)}
-        safariPackage={{ name: packageName, amount: packagePrice }}
+
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setBookingOpen(false)} 
+        safariPackage={{name: packageName, amount: packagePrice}} 
       />
     </div>
   )
