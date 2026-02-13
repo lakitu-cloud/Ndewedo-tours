@@ -1,9 +1,54 @@
 "use client";
 
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { useState } from 'react';
+import { Facebook, Instagram, Twitter, Youtube, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) {
+      toast.error('Please enter your email');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://gilleadsafaris.com/backend/newsletter.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          name: name || 'Subscriber', // Use 'Subscriber' as default if name is empty
+          email 
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(data.message || 'Thank you for subscribing!');
+        setEmail('');
+        setName('');
+      } else {
+        toast.error(data.message || 'Failed to subscribe');
+      }
+    } catch (error) {
+      console.error('Newsletter error:', error);
+      toast.error('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-r from-[rgba(31,117,31,0.04)] to-[rgba(31,117,31,0.04)] py-[75px] px-[20px]">
       <div className="max-w-[1400px] mx-auto">
@@ -17,16 +62,41 @@ export default function Footer() {
               News Letters
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="bg-white border border-[#dadbdd] rounded-[50px] px-[20px] sm:px-[30px] py-[16px] font-['Segoe_UI'] text-[16px] text-[#868e96] w-full sm:w-[350px] outline-none focus:border-[#0f440f] h-[56px]"
-            />
-            <button className="bg-[#0f440f] text-white px-[35px] py-[16px] rounded-[50px] font-['Arial'] text-[16px] font-bold whitespace-nowrap hover:bg-[#1f751f] transition-colors w-full sm:w-auto h-[56px]">
-              Subscribe Now
+          <form 
+            onSubmit={handleSubscribe}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto"
+          >
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                disabled={isSubmitting}
+                className="bg-white border border-[#dadbdd] rounded-[50px] px-[20px] sm:px-[30px] py-[16px] font-['Segoe_UI'] text-[16px] text-[#868e96] w-full sm:w-[200px] outline-none focus:border-[#0f440f] h-[56px] disabled:opacity-70"
+              />
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                disabled={isSubmitting}
+                className="bg-white border border-[#dadbdd] rounded-[50px] px-[20px] sm:px-[30px] py-[16px] font-['Segoe_UI'] text-[16px] text-[#868e96] w-full sm:w-[350px] outline-none focus:border-[#0f440f] h-[56px] disabled:opacity-70"
+              />
+            </div>
+            <button 
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-[#0f440f] text-white px-[35px] py-[16px] rounded-[50px] font-['Arial'] text-[16px] font-bold whitespace-nowrap hover:bg-[#1f751f] transition-colors w-full sm:w-auto h-[56px] flex items-center justify-center min-w-[180px] disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <Loader2 className="animate-spin" size={20} />
+              ) : (
+                'Subscribe Now'
+              )}
             </button>
-          </div>
+          </form>
         </div>
 
         {/* Footer Main Content */}

@@ -1,5 +1,5 @@
 import svgPaths from "./svg-qq1qf7danv";
-import imgZuluPng from "figma:asset/5e9bdb8ec0de5cb6f763bdda7c8e2df02f49cb5d.png";
+import imgZuluPng from "/asset/5e9bdb8ec0de5cb6f763bdda7c8e2df02f49cb5d.png";
 import imgBackgroundOverlay from "figma:asset/8fd3a9c841e1b6c7141da1c360210e5d2eb02709.png";
 import imgOverlayImage from "figma:asset/84aae7ff223a40785576ac228aed3a3c2d2b2a01.png";
 import imgOverlayImage1 from "figma:asset/6870993bf1e00fbf0cb4123dc0e7f9640cf9e623.png";
@@ -84,7 +84,7 @@ function ZuluPng() {
   return (
     <div className="absolute max-w-[1920px] opacity-80 right-[65px] size-[80px] top-[65px]" data-name="zulu.png">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgZuluPng} />
+        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgZuluPng.src} />
       </div>
     </div>
   );
@@ -95,7 +95,7 @@ function BackgroundOverlay() {
     <div className="h-[550px] max-w-[1400px] relative rounded-[20px] shrink-0 w-full" data-name="Background+Overlay">
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
         <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-          <img alt="" className="absolute h-[191.11%] left-0 max-w-none top-[-45.55%] w-full" src={imgBackgroundOverlay} />
+          <img alt="" className="absolute h-[191.11%] left-0 max-w-none top-[-45.55%] w-full" src={imgBackgroundOverlay.src} />
         </div>
         <div className="absolute inset-0 rounded-[20px]" style={{ backgroundImage: "linear-gradient(rgba(6, 40, 6, 0) 0%, rgba(6, 40, 6, 0.35) 50%, rgb(7, 25, 7) 100%), linear-gradient(90deg, rgba(6, 40, 6, 0.35) 0%, rgba(6, 40, 6, 0.35) 100%)" }} />
       </div>
@@ -265,7 +265,7 @@ function Container4() {
       <div className="basis-0 grow h-[520px] min-h-px min-w-px relative rounded-[20px] shrink-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[104.51%] left-0 max-w-none top-[-0.45%] w-full" src={imgOverlayImage} />
+            <img alt="" className="absolute h-[104.51%] left-0 max-w-none top-[-0.45%] w-full" src={imgOverlayImage.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -338,7 +338,7 @@ function Container6() {
       <div className="absolute h-[235px] left-0 right-[357.5px] rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.61%]" src={imgOverlayImage1} />
+            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.61%]" src={imgOverlayImage1.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -346,7 +346,7 @@ function Container6() {
       <div className="absolute h-[235px] left-[357.5px] right-0 rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[104.47%] left-0 max-w-none top-0 w-full" src={imgOverlayImage2} />
+            <img alt="" className="absolute h-[104.47%] left-0 max-w-none top-0 w-full" src={imgOverlayImage2.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -354,7 +354,7 @@ function Container6() {
       <div className="absolute h-[235px] left-0 right-[357.5px] rounded-[20px] top-[264px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.17%]" src={imgOverlayImage3} />
+            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.17%]" src={imgOverlayImage3.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -362,7 +362,7 @@ function Container6() {
       <div className="absolute h-[235px] left-[357.5px] right-0 rounded-[20px] top-[264px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.61%]" src={imgOverlayImage4} />
+            <img alt="" className="absolute h-full left-0 max-w-none top-0 w-[107.61%]" src={imgOverlayImage4.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -431,7 +431,7 @@ function BackgroundOverlay1() {
     <div className="box-border content-stretch flex flex-col h-[800px] items-start justify-end px-[30px] py-[50px] relative rounded-[20px] shrink-0 w-[685.67px]" data-name="Background+Overlay">
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
         <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-          <img alt="" className="absolute h-full left-[-53.81%] max-w-none top-0 w-[207.61%]" src={imgBackgroundOverlay1} />
+          <img alt="" className="absolute h-full left-[-53.81%] max-w-none top-0 w-[207.61%]" src={imgBackgroundOverlay1.src} />
         </div>
         <div className="absolute inset-0 rounded-[20px]" style={{ backgroundImage: "linear-gradient(rgba(15, 68, 15, 0) 0%, rgba(15, 68, 15, 0.2) 50%, rgb(6, 40, 6) 100%), linear-gradient(90deg, rgba(6, 40, 6, 0.3) 0%, rgba(6, 40, 6, 0.3) 100%)" }} />
       </div>
@@ -479,7 +479,7 @@ function Container10() {
       <div className="absolute h-[235px] left-0 right-[357.17px] rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[187.29%] left-0 max-w-none top-[-74.19%] w-full" src={imgOverlayImage5} />
+            <img alt="" className="absolute h-[187.29%] left-0 max-w-none top-[-74.19%] w-full" src={imgOverlayImage5.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -487,7 +487,7 @@ function Container10() {
       <div className="absolute h-[235px] left-[357.17px] right-0 rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[220.79%] left-0 max-w-none top-[-30.2%] w-full" src={imgOverlayImage6} />
+            <img alt="" className="absolute h-[220.79%] left-0 max-w-none top-[-30.2%] w-full" src={imgOverlayImage6.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -495,7 +495,7 @@ function Container10() {
       <div className="absolute h-[300px] left-0 right-0 rounded-[20px] top-[265px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[304.36%] left-0 max-w-none top-[-112.4%] w-full" src={imgOverlayImage7} />
+            <img alt="" className="absolute h-[304.36%] left-0 max-w-none top-[-112.4%] w-full" src={imgOverlayImage7.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -640,7 +640,7 @@ function Container17() {
       <div className="absolute h-[235px] left-0 right-[357.5px] rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[139.36%] left-0 max-w-none top-0 w-full" src={imgOverlayImage8} />
+            <img alt="" className="absolute h-[139.36%] left-0 max-w-none top-0 w-full" src={imgOverlayImage8.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -648,7 +648,7 @@ function Container17() {
       <div className="absolute h-[235px] left-[357.5px] right-0 rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[203.94%] left-0 max-w-none top-0 w-full" src={imgOverlayImage9} />
+            <img alt="" className="absolute h-[203.94%] left-0 max-w-none top-0 w-full" src={imgOverlayImage9.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -656,7 +656,7 @@ function Container17() {
       <div className="absolute h-[235px] left-0 right-[357.5px] rounded-[20px] top-[264px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[203.93%] left-0 max-w-none top-[-51.97%] w-full" src={imgOverlayImage10} />
+            <img alt="" className="absolute h-[203.93%] left-0 max-w-none top-[-51.97%] w-full" src={imgOverlayImage10.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -664,7 +664,7 @@ function Container17() {
       <div className="absolute h-[235px] left-[357.5px] right-0 rounded-[20px] top-[264px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[139.36%] left-0 max-w-none top-0 w-full" src={imgOverlayImage11} />
+            <img alt="" className="absolute h-[139.36%] left-0 max-w-none top-0 w-full" src={imgOverlayImage11.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -806,7 +806,7 @@ function Container22() {
       <div className="absolute h-[235px] left-0 right-[357.5px] rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[186.73%] left-0 max-w-none top-0 w-full" src={imgOverlayImage12} />
+            <img alt="" className="absolute h-[186.73%] left-0 max-w-none top-0 w-full" src={imgOverlayImage12.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -814,7 +814,7 @@ function Container22() {
       <div className="absolute h-[235px] left-[357.5px] right-0 rounded-[20px] top-0" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[187%] left-0 max-w-none top-[-30.45%] w-full" src={imgOverlayImage13} />
+            <img alt="" className="absolute h-[187%] left-0 max-w-none top-[-30.45%] w-full" src={imgOverlayImage13.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -822,7 +822,7 @@ function Container22() {
       <div className="absolute h-[400px] left-0 right-0 rounded-[20px] top-[264px]" data-name="Overlay+Image">
         <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[20px]">
           <div className="absolute inset-0 overflow-hidden rounded-[20px]">
-            <img alt="" className="absolute h-[128.88%] left-0 max-w-none top-[-21.95%] w-full" src={imgOverlayImage14} />
+            <img alt="" className="absolute h-[128.88%] left-0 max-w-none top-[-21.95%] w-full" src={imgOverlayImage14.src} />
           </div>
           <div className="absolute bg-[rgba(6,40,6,0.3)] inset-0 rounded-[20px]" />
         </div>
@@ -980,7 +980,7 @@ function NdewedoLogo3249X822Webp() {
   return (
     <div className="h-[82px] max-w-[310px] relative shrink-0 w-[249px]" data-name="Ndewedo-Logo3-249x82-2.webp">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgNdewedoLogo3249X822Webp} />
+        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgNdewedoLogo3249X822Webp.src} />
       </div>
     </div>
   );
@@ -1405,7 +1405,7 @@ function PaymentWebp() {
   return (
     <div className="absolute h-[33.04px] left-[88%] right-0 top-[30px]" data-name="payment.webp">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgPaymentWebp} />
+        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgPaymentWebp.src} />
       </div>
     </div>
   );
@@ -1448,7 +1448,7 @@ function NdewedoLogo3249X822Webp1() {
   return (
     <div className="h-[65.86px] max-w-[200px] relative shrink-0 w-[200px]" data-name="Ndewedo-Logo3-249x82-2.webp">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-[100.01%] left-0 max-w-none top-0 w-full" src={imgNdewedoLogo3249X822Webp} />
+        <img alt="" className="absolute h-[100.01%] left-0 max-w-none top-0 w-full" src={imgNdewedoLogo3249X822Webp.src} />
       </div>
     </div>
   );
@@ -1657,7 +1657,7 @@ function NdewedoLogo3249X821Webp() {
   return (
     <div className="h-[72.44px] max-w-[220px] relative shrink-0 w-[219.96px]" data-name="Ndewedo-Logo3-249x82-1.webp">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-[100.01%] left-[-0.01%] max-w-none top-[-0.01%] w-[100.02%]" src={imgNdewedoLogo3249X822Webp} />
+        <img alt="" className="absolute h-[100.01%] left-[-0.01%] max-w-none top-[-0.01%] w-[100.02%]" src={imgNdewedoLogo3249X822Webp.src} />
       </div>
     </div>
   );

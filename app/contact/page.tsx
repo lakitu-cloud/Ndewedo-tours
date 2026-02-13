@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from 'react'
-import type { Metadata } from 'next'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Loader2 } from 'lucide-react'
 import { HeroSection } from '@/components/HeroSection'
+import { toast } from 'sonner'
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,10 +15,44 @@ export default function ContactPage() {
     message: ''
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    alert('Thank you for your inquiry! We will get back to you soon.')
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('https://gilleadsafaris.com/backend/contact_form.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.interest,
+          message: `Phone: ${formData.phone}\n\n${formData.message}`
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        toast.success(data.message || 'Message sent successfully!')
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          interest: '',
+          message: ''
+        })
+      } else {
+        toast.error(data.message || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Contact form error:', error)
+      toast.error('Something went wrong. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -41,9 +76,10 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
+                    disabled={isSubmitting}
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f] disabled:bg-gray-50"
                     placeholder="Your name"
                   />
                 </div>
@@ -53,9 +89,10 @@ export default function ContactPage() {
                   <input
                     type="email"
                     required
+                    disabled={isSubmitting}
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f] disabled:bg-gray-50"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -64,9 +101,10 @@ export default function ContactPage() {
                   <label className="block text-[16px] text-[#333333] mb-2">Phone</label>
                   <input
                     type="tel"
+                    disabled={isSubmitting}
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f] disabled:bg-gray-50"
                     placeholder="+1 234 567 8900"
                   />
                 </div>
@@ -75,16 +113,17 @@ export default function ContactPage() {
                   <label className="block text-[16px] text-[#333333] mb-2">I'm Interested In *</label>
                   <select
                     required
+                    disabled={isSubmitting}
                     value={formData.interest}
                     onChange={(e) => setFormData({...formData, interest: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f] disabled:bg-gray-50"
                   >
                     <option value="">Select an option</option>
-                    <option value="safari">Wildlife Safaris</option>
-                    <option value="trekking">Kilimanjaro Trekking</option>
-                    <option value="cultural">Cultural Tours</option>
-                    <option value="volunteer">Volunteer Programs</option>
-                    <option value="custom">Custom Package</option>
+                    <option value="Wildlife Safaris">Wildlife Safaris</option>
+                    <option value="Kilimanjaro Trekking">Kilimanjaro Trekking</option>
+                    <option value="Cultural Tours">Cultural Tours</option>
+                    <option value="Volunteer Programs">Volunteer Programs</option>
+                    <option value="Custom Package">Custom Package</option>
                   </select>
                 </div>
 
@@ -92,19 +131,28 @@ export default function ContactPage() {
                   <label className="block text-[16px] text-[#333333] mb-2">Message *</label>
                   <textarea
                     required
+                    disabled={isSubmitting}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f]"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1f751f] disabled:bg-gray-50"
                     placeholder="Tell us about your dream Tanzania adventure..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#1f751f] text-white px-8 py-4 rounded-[50px] text-[18px] hover:bg-[#0f440f] transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#1f751f] text-white px-8 py-4 rounded-[50px] text-[18px] hover:bg-[#0f440f] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </form>
             </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ImageWithFallback } from '@/components/figma/ImageWithFallback'
-import { ArrowRight, MapPin, Clock, Users, Star, Check } from 'lucide-react'
+import { ArrowRight, MapPin, Clock, Users, Star, Check, Calendar } from 'lucide-react'
 
 // This would normally come from a database or CMS
 const destinations: Record<string, any> = {
@@ -176,16 +176,18 @@ export async function generateStaticParams() {
   return Object.keys(destinations).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const destination = destinations[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const destination = destinations[slug];
   return {
     title: `${destination?.name || 'Destination'} - Ndewedo Tours`,
     description: destination?.description || '',
   };
 }
 
-export default function DestinationPage({ params }: { params: { slug: string } }) {
-  const destination = destinations[params.slug];
+export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const destination = destinations[slug];
 
   if (!destination) {
     return (

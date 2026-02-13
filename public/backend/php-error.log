@@ -1,0 +1,15 @@
+[19-Jan-2026 14:09:29 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'phone' in 'INSERT INTO' in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php:76
+Stack trace:
+#0 /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php(76): mysqli->prepare('\n    INSERT INT...')
+#1 {main}
+  thrown in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php on line 76
+[19-Jan-2026 14:09:50 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'phone' in 'INSERT INTO' in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php:76
+Stack trace:
+#0 /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php(76): mysqli->prepare('\n    INSERT INT...')
+#1 {main}
+  thrown in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php on line 76
+[19-Jan-2026 14:13:56 Europe/London] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'phone' in 'INSERT INTO' in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php:81
+Stack trace:
+#0 /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php(81): mysqli->prepare('\n    INSERT INT...')
+#1 {main}
+  thrown in /home/sites/35a/4/4a536b170d/public_html/backend/export_inquiry.php on line 81

@@ -61,7 +61,6 @@ export default function Header({
   }, []);
 
   // Force transparent state on home page before scrolling, otherwise use solid state
-  // On other pages, it will be solid unless explicitly set to transparent and not scrolled
   const isTransparent = shouldBeTransparent && !scrolled;
 
   const textColor = isTransparent
@@ -87,7 +86,7 @@ export default function Header({
               <img
                 src="https://ndewedotours.com/wp-content/uploads/2025/02/Ndewedo-Logo3-249x82-2.webp"
                 alt="Ndewedo Tours"
-                className={`h-full w-full object-contain ${isTransparent ? "brightness-0 invert" : ""}`}
+                className="h-full w-full object-contain"
               />
             </div>
           </Link>
